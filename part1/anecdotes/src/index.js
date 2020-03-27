@@ -22,6 +22,12 @@ const App = props => {
     setVotes(copy);
   };
 
+  const mostVoted = () => {
+    return Object.keys(votes).reduce(function(a, b) {
+      return votes[a] > votes[b] ? a : b;
+    });
+  };
+
   return (
     <div>
       <h1>Anecdote of the day</h1>
@@ -33,6 +39,7 @@ const App = props => {
       </p>
       {console.log(votes)}
       <h1>Anecdote with most votes</h1>
+      {props.anecdotes[mostVoted()]}
     </div>
   );
 };
